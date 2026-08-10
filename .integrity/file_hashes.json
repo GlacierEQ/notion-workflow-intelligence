@@ -1,17 +1,14 @@
 {
-  "repo": "notion-workflow-intelligence",
-  "algorithm": "sha256",
-  "file_count": 10,
+  "file_count": 9,
   "hashes": {
-    "README.md": "c4921ff8b10ca0cd2e920ef00ebae459ea86b1a57dda0a846283f4af92b6806c",
-    "EASTER_EGGS.md": "0c4fc58a6163b54497fc8327ec77f4293330eea4ba636e30db202836bd450900",
     "AKOS.md": "eae48200ee1bf2ec3fe2f267668b1dd09bac66f3bd2e01420e5787413f247a07",
+    "EASTER_EGGS.md": "0c4fc58a6163b54497fc8327ec77f4293330eea4ba636e30db202836bd450900",
     "HELIX_STRAND.md": "220b9ced2126a1479ec3523968d7323c48188c2289b389e563b28d6563db1315",
-    "mastermind_sidecar.py": "b8cbf2f528794ea52c919bdb928d995a4115f915cbed7ebaddb6db6d38dbd80c",
+    "README.md": "ce20beaf67d53514faf4d3215a2a9a5e1b3e522ebad8ac3281dc591a54cc1c31",
     "SECURITY_AND_FLEET_OPS.md": "26141c0f07d95847d679de423ddb7bdee6f3e319d204383c89a58d6d3bb610c7",
-    "tests/test_workflow.py": "a685a9529f3886ea7b6bd4ab8838a02ec9d3f7d66042a76433aeae85583473ed",
-    ".github/workflows/ci.yml": "393542f8109cac2611d6ab41b8b062e6cc8be46894379568f15c0b7e2c1a639f",
+    "mastermind_sidecar.py": "b8cbf2f528794ea52c919bdb928d995a4115f915cbed7ebaddb6db6d38dbd80c",
     "src/workflow_engine.py": "d472ba1d80409351000860feced34ae8a2e49c247f3110958fc57449325ec4e0",
-    "src/workflow_intelligence.py": "c58de2146b9f9b58f2b64ff3633275d3be5ac23d4e137640cc0474e6ddbddbc9"
+    "src/workflow_intelligence.py": "c58de2146b9f9b58f2b64ff3633275d3be5ac23d4e137640cc0474e6ddbddbc9",
+    "tests/test_workflow.py": "a685a9529f3886ea7b6bd4ab8838a02ec9d3f7d66042a76433aeae85583473ed"
   }
 }

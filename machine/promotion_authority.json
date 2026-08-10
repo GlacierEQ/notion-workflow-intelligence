@@ -1,0 +1,11 @@
+{
+  "schema": "glaciereq.promotion-authority-grant.v1",
+  "repository": "GlacierEQ/notion-workflow-intelligence",
+  "source_sha": "80bcc513776f4ee100c2bad6acd6bea735288d73ea336a7b992baab956ec11f4",
+  "proof_receipt_digest": "6c6de92d6d7be8c063adf145b19bdf6fb687ea1f6c0b1225532ee19c4cc98c5a",
+  "not_after": 1788927149.234226,
+  "mac": "4dbbdf8fcd2512563532c76ba8b3974f6749271684fa8204bffb36af6dd5bd4d",
+  "issuer": "local_operator_promotion_authority",
+  "verified": true,
+  "secret_ref": "src/promotion_authority.py::LOCAL_OPERATOR_SECRET"
+}

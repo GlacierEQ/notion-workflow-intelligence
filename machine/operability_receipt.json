@@ -1,0 +1,31 @@
+{
+  "schema": "glaciereq.operability-receipt.v1",
+  "repository": "GlacierEQ/notion-workflow-intelligence",
+  "at": "2026-08-10T04:12Z",
+  "source_sha": "80bcc513776f4ee100c2bad6acd6bea735288d73ea336a7b992baab956ec11f4",
+  "entry": "scripts/operate.py",
+  "primary_output": {
+    "module": "workflow_intelligence",
+    "ok": true,
+    "repository": "GlacierEQ/notion-workflow-intelligence",
+    "smoke": {
+      "args": [
+        "WorkflowPlan(intent=1, steps=[], total_e"
+      ],
+      "content_checked": true,
+      "invoked": true,
+      "kind": "class",
+      "method": "execute_workflow",
+      "module_local": true,
+      "name": "WorkflowCoordinator",
+      "result": {
+        "completed": 0,
+        "execution_log": [],
+        "total_steps": 0,
+        "total_time_s": 1.0
+      }
+    }
+  },
+  "dual_run_ok": true,
+  "result": "PASS"
+}

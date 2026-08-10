@@ -7,7 +7,6 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from typing import Callable
 
-ANSWER = 42
 
 @dataclass
 class Stage:
@@ -28,9 +27,9 @@ class Workflow:
                 continue
             if st.guard(self.state):
                 self.history.append(st.name)
-                return {"advanced_to": st.name, "done": len(self.history)==len(self.stages), "answer": ANSWER}
-            return {"blocked_at": st.name, "done": False, "answer": ANSWER}
-        return {"done": True, "answer": ANSWER}
+                return {"advanced_to": st.name, "done": len(self.history)==len(self.stages) }
+            return {"blocked_at": st.name, "done": False }
+        return {"done": True }
 
 if __name__ == "__main__":
     wf = Workflow("intake", [
