@@ -1,1 +1,16 @@
-{"capabilities": ["hyper-scaling"]}
+{
+  "schema": "glaciereq.bounded-capabilities.v1",
+  "capabilities": [
+    "deterministic-contextual-intent-heuristics",
+    "dependency-aware-workflow-plan-construction",
+    "local-workflow-step-coordination-simulation",
+    "guarded-stage-transition-engine",
+    "rule-derived-alignment-and-workflow-statistics"
+  ],
+  "operational_authority": false,
+  "live_notion_api_integration": false,
+  "live_mcp_apex_mastermind_integration": false,
+  "llm_or_model_inference": false,
+  "persistent_learning": false,
+  "external_agent_execution": false
+}

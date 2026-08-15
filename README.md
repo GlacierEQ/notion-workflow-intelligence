@@ -1,154 +1,83 @@
-<<<<<<< HEAD
 # Notion Workflow Intelligence
-=======
-# Notion Workflow Intelligence — Smart Workspace Automation Engine 🧠
 
-> **AI-powered Notion workspace automation with intelligent task routing, content generation, and workflow optimization.**
+**Deterministic local intent heuristics, workflow planning, and guarded workflow execution.**
 
-[![Python](https://img.shields.io/badge/Python-3.9+-blue)]()
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-3178C6)]()
-[![Domain](https://img.shields.io/badge/Domain-Productivity%20AI-purple)]()
->>>>>>> ed05a26 (docs(readme): upgrade to 3-section recruiter/engineer/mesh structure & update SHA-256 baseline)
+This repository is an independent portfolio project. It is not affiliated with Notion and it does not establish access to Notion APIs, workspaces, user data, or production automation authority.
 
-Notion Workflow Intelligence is the Notion control-plane node for GlacierEQ workflow orchestration.
+## Implemented mechanisms
 
-<<<<<<< HEAD
-It exists to make work visible, queueable, reviewable, and connected across GitHub, memory, document systems, and worker swarms.
+### Contextual intent heuristic
 
-## System Role
+`src/workflow_intelligence.py` contains `IntentInferenceEngine`, which derives a local workflow intent from a caller-supplied request and `UserContext`.
 
-This repository belongs to the workflow-intelligence layer.
+The mechanism is deterministic rule logic:
 
-Its role is to define and document how Notion should operate as:
+- request keywords select an action and, when present, an organization strategy;
+- caller-supplied active projects, recent-note text, and calendar records influence fallback strategy, targets, and priority ordering;
+- the returned `confidence` value is a rule-derived score, not a calibrated probability or model confidence.
 
-- queue surface
-- mission dashboard
-- repository status board
-- review and approval layer
-- worker status ledger
-- integration map
-- human-readable control plane
+No language model, embedding model, Notion API, calendar API, or background learner is invoked by this mechanism.
 
-## README Swarm Role
+### Dependency-aware workflow planning
 
-For library-wide README maintenance, Notion should hold the queue and state model.
+`WorkflowPlanner` maps the inferred action to an ordered local step plan. Each generated step carries:
 
-```text
-Repo inventory
-        │
-        ▼
-Notion README queue
-        │
-        ├── repo
-        ├── category
-        ├── current score
-        ├── target score
-        ├── assigned worker batch
-        ├── branch
-        ├── PR
-        ├── status
-        └── audit receipt
-        │
-        ▼
-Worker swarm
-        │
-        ├── Make-It-Heavy drafts the README star map
-        ├── APEX GitHub Worker commits and opens PRs
-        ├── Memory captures repo role and integration map
-        └── Notion receives status and receipt updates
-```
+- an action;
+- a target;
+- a dependency on the preceding step when applicable;
+- a local agent-role label; and
+- a modeled duration value.
 
-## Status
+The agent labels are planning metadata. They do not prove that external autonomous agents were launched.
 
-**ACTIVE / CONTROL-PLANE CANDIDATE**
+### Local workflow coordination simulation
 
-The existing repository is currently skeletal. It needs schemas, examples, queue templates, and worker status contracts to become fully operational.
+`WorkflowCoordinator` executes the in-memory dependency plan, records completed steps, and derives a simple completion-based alignment score. The score is deterministic bookkeeping over local completion state, not a semantic evaluation of human intent.
 
-## Suggested Notion Databases
+### Guarded stage engine
 
-```text
-Repository Catalog
-README Audit Queue
-Worker Runs
-Patch Receipts
-Integration Registry
-Category Index
-Review Decisions
-```
+`src/workflow_engine.py` provides a smaller `Workflow`/`Stage` mechanism. A workflow advances only when the next stage guard accepts current local state; otherwise it returns the blocking stage without skipping ahead.
 
-## Required Queue Fields
+## What this repository does not establish
 
-```yaml
-repo: GlacierEQ/example-repo
-category: document-automation
-priority: high
-status: queued
-readme_score_before: 42
-readme_score_after: null
-worker_batch: readme-swarm-001
-branch: docs/readme-star-map
-pr_url: null
-receipt_sha256: null
-review_owner: Casey
-last_updated_hst: null
-```
+- No live Notion database, page, block, user, or workspace integration.
+- No Notion affiliation, endorsement, employment, or proprietary access.
+- No live MCP, APEX, Mastermind, or provider-mesh integration.
+- No LLM-powered content generation or semantic intent understanding.
+- No persistent learning from prior workflows; in-memory logs are not a trained learner.
+- No real multi-agent concurrency, external job execution, or autonomous side effects.
+- No calibrated probability, production reliability, latency, throughput, or security guarantee.
 
-## Fleet Ops
+## Verification
 
-This repo may include `.integrity/` SHA-256 baselines, watchdog metadata, and health sidecars.
-
-These are documented multi-repo fleet operations, not covert implants.
-
-See `SECURITY_AND_FLEET_OPS.md` and `~/GlacierEQ_Swarm/state/PORTFOLIO_SHADOW_AND_GAUNTLET.md` when available.
-
-## Helix Strand
-
-See `HELIX_STRAND.md` when present for the portfolio double-helix role.
-
-## Truth & Maintenance Notes
-
-This README describes the intended control-plane role. Implementation details should be expanded as queue schemas, worker contracts, and deployment receipts are added.
-=======
-## 🎯 For Recruiters & Hiring Managers
-
-This repository implements a **smart workspace automation engine** for Notion — using AI to automate repetitive tasks, route work items, and optimize team workflows. It demonstrates:
-
-- **Intelligent task routing** based on workload, expertise, and deadline analysis
-- **Content generation** with context-aware templates and AI-assisted writing
-- **Workflow analytics** identifying bottlenecks and optimization opportunities
-- **API integration** with Notion's database, page, and block APIs
-
-**Why this matters**: Productivity AI is a high-growth sector. This codebase shows the **API integration, natural language processing, and workflow automation** skills that SaaS product teams need.
-
----
-
-## 🔬 For Engineers & Technical Reviewers
-
-### Core Components
-
-| Component | Language | Purpose |
-|---|---|---|
-| `src/workflow_intelligence.py` | Python | Task routing, content generation, analytics engine |
-| `tests/` | Python | Workflow simulation with mock Notion API responses |
-
----
-
-## 🤖 ML/AI & Programmatic Mesh Integration
-
-- **MCP Tool**: `analyze_workspace()` — workspace health queryable by orchestrator agents
-- **Mastermind Sidecar**: Publishes workflow metrics to APEX Highway mesh
-- **AI Extension**: LLM-powered task decomposition and automated subtask generation
-
-```python
-analysis = await mcp_client.call_tool("notion-workflow", "analyze_workspace")
-```
-
----
-
-## ⚡ Quick Start
+Repository CI is bound to the canonical `master` branch and verifies the bounded Python surfaces on Python 3.11, 3.12, and 3.13:
 
 ```bash
-python3 src/workflow_intelligence.py
-python3 tests/test_workflow.py
+python -m compileall -q src tests scripts
+python -m pytest -q
+python scripts/verify_public_truth.py
 ```
->>>>>>> ed05a26 (docs(readme): upgrade to 3-section recruiter/engineer/mesh structure & update SHA-256 baseline)
+
+The public-truth check fails closed if unresolved merge-conflict markers, live-provider claims, stale hyper-scaling capability metadata, or stale promoted authority reappear.
+
+## Example
+
+```python
+from src.workflow_intelligence import NotionWorkflowIntelligence, UserContext
+
+context = UserContext(
+    recent_notes=["Project A notes", "Project B notes"],
+    active_projects=["Project A", "Project B"],
+    calendar_events=[{"project": "Project A", "time": "2026-08-20"}],
+    previous_workflows=[],
+    user_preferences={},
+)
+
+result = NotionWorkflowIntelligence().process_request(
+    "Clean up my project notes",
+    context,
+)
+print(result["inferred_intent"])
+```
+
+Everything in that example is local caller-supplied data and deterministic repository code.
