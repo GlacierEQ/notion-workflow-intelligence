@@ -5,12 +5,31 @@
     "dependency-aware-workflow-plan-construction",
     "local-workflow-step-coordination-simulation",
     "guarded-stage-transition-engine",
-    "rule-derived-alignment-and-workflow-statistics"
+    "rule-derived-alignment-and-workflow-statistics",
+    "apex-mass-recovery-enrolled"
   ],
   "operational_authority": false,
   "live_notion_api_integration": false,
   "live_mcp_apex_mastermind_integration": false,
   "llm_or_model_inference": false,
   "persistent_learning": false,
-  "external_agent_execution": false
+  "external_agent_execution": false,
+  "recovery": {
+    "identity": "APEX_IS_THE_COUNTER_TO_CANONICAL_DESTRUCTION",
+    "law": "MAXIMUM_COHERENT_ADVANCE",
+    "program": "mass-job-repo-recovery",
+    "dual_plane": true
+  },
+  "planes": {
+    "verified": [
+      "deterministic-contextual-intent-heuristics",
+      "dependency-aware-workflow-plan-construction",
+      "local-workflow-step-coordination-simulation",
+      "guarded-stage-transition-engine",
+      "rule-derived-alignment-and-workflow-statistics"
+    ],
+    "implemented": [
+      "apex-mass-recovery-enrolled"
+    ]
+  }
 }
