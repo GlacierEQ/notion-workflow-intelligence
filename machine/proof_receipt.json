@@ -4,12 +4,12 @@
   "source_sha": "80bcc513776f4ee100c2bad6acd6bea735288d73ea336a7b992baab956ec11f4",
   "proof_id": "elite-notion-workflow-intelligence-1786335149",
   "environment": {
-    "python": "/Users/kcbflux/job-app/excellence/.venv-elite/bin/python",
-    "PYTHONPATH": "/Users/kcbflux/job-app/repos/notion-workflow-intelligence:/Users/kcbflux/job-app/repos/notion-workflow-intelligence/src",
+    "python": "${HOME}/job-app/excellence/.venv-elite/bin/python",
+    "PYTHONPATH": "${HOME}/job-app/repos/notion-workflow-intelligence:${HOME}/job-app/repos/notion-workflow-intelligence/src",
     "entry": "unittest"
   },
   "tests": [
-    "/Users/kcbflux/job-app/excellence/.venv-elite/bin/python -m unittest discover -s tests -v (x2)"
+    "${HOME}/job-app/excellence/.venv-elite/bin/python -m unittest discover -s tests -v (x2)"
   ],
   "adversarial_tests": [
     "tests/test_adversarial.py"
